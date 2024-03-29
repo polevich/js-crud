@@ -4,11 +4,11 @@
       <div class='card__content'>
         <h1 class='card__title'>{{name}}</h1>
         <span class='card__description'>{{description}}</span>
-        <p class='card__id'>{{id}}</p>
+        <p class='card__id'>ID: {{id}}</p>
       </div>
       <div class='card__action'>
-        <strong class='card__price'>{{price}}</strong>
-        <a href='/product-edit?id={{id}}'>Редактировать</a>
+        <strong class='card__price'>{{price}} ₴</strong>
+        <a class='card__edit' href='/product-edit?id={{id}}'>Редактировать</a>
       </div>
     </div>
   {{/each}}

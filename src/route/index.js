@@ -213,13 +213,13 @@ router.get('/product-create', function (req, res) {
 
 router.post('/product-create', function (req, res) {
   const { name, price, description } = req.body
-  const product = new User(name, price, description)
+  const product = new Product(name, price, description)
 
   Product.add(product)
   console.log(Product.getList())
 
-  res.render('alert', {
-    style: 'alert',
+  res.render('product-alert', {
+    style: 'product-alert',
     info: 'Товар создан',
     info2: 'Товар создан',
   })
@@ -299,6 +299,19 @@ router.post('/product-edit', function (req, res) {
     })
   }
   // ↑↑ сюди вводимо JSON дані
+})
+
+// ================================================================
+
+router.get('/product-delete', function (req, res) {
+  const { id } = req.query
+
+  Product.deleteById(Number(id))
+
+  res.render('product-edit', {
+    style: 'product-edit',
+    info: 'Пользователь удален',
+  })
 })
 
 // ================================================================

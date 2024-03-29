@@ -58,6 +58,7 @@
 }
 .form__button--red {
   background: red;
+  text-decoration: none;
 }
 
 main {
