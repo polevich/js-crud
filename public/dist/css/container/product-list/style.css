@@ -1,0 +1,15 @@
+.product {
+  padding: 16px;
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+.card__content {
+  display: flex;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=style.css.map */

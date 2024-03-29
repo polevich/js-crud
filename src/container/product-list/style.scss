@@ -1,0 +1,16 @@
+@use '../../lib/service.scss' as s;
+
+.product {
+  padding: s.space(4);
+  gap: s.space(4);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+}
