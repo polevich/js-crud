@@ -59,16 +59,4 @@
   text-align: center;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-user-list li {
-  padding-right: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
 /*# sourceMappingURL=style.css.map */

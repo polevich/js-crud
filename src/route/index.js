@@ -66,8 +66,6 @@ class Product {
 
   constructor(name, price, description) {
     this.id = Math.floor(Math.random() * 100000)
-      .toString()
-      .padStart(5, '0')
     this.createDate = new Date().toISOString()
     this.name = name
     this.price = price
@@ -88,24 +86,24 @@ class Product {
 
   static updateById = (id, data) => {
     const product = this.getById(id)
+    const { name, price, description } = data
 
     if (product) {
-      this.update(product, data)
+      if (name) {
+        product.name = name
+      }
+
+      if (price) {
+        product.price = price
+      }
+
+      if (description) {
+        product.description = description
+      }
+
       return true
     } else {
       return false
-    }
-  }
-
-  static update = (product, { price, name, description }) => {
-    if (price) {
-      product.price = price
-    }
-    if (name) {
-      product.name = name
-    }
-    if (description) {
-      product.description = description
     }
   }
 
@@ -221,7 +219,6 @@ router.post('/product-create', function (req, res) {
   res.render('product-alert', {
     style: 'product-alert',
     info: 'Товар создан',
-    info2: 'Товар создан',
   })
 })
 
@@ -266,7 +263,7 @@ router.get('/product-edit', function (req, res) {
     return res.render('product-alert', {
       // вказуємо назву папки контейнера, в якій знаходяться наші стилі
       style: 'product-alert',
-      info: 'Продукту за таким ID не знайдено',
+      info: 'Продукта с таким ID не найдено',
     })
   }
 })
@@ -288,14 +285,14 @@ router.post('/product-edit', function (req, res) {
     res.render('product-alert', {
       // вказуємо назву папки контейнера, в якій знаходяться наші стилі
       style: 'product-alert',
-      info: 'Інформація про товар оновлена',
+      info: 'Информация про товар обновлена',
     })
   } else {
     // ↙️ cюди вводимо назву файлу з сontainer
     res.render('product-alert', {
       // вказуємо назву папки контейнера, в якій знаходяться наші стилі
       style: 'product-alert',
-      info: 'Сталася помилка',
+      info: 'Произошла ошибка',
     })
   }
   // ↑↑ сюди вводимо JSON дані
@@ -306,12 +303,23 @@ router.post('/product-edit', function (req, res) {
 router.get('/product-delete', function (req, res) {
   const { id } = req.query
 
-  Product.deleteById(Number(id))
+  const product = Product.deleteById(Number(id))
 
-  res.render('product-edit', {
-    style: 'product-edit',
-    info: 'Пользователь удален',
-  })
+  if (product) {
+    // ↙️ cюди вводимо назву файлу з сontainer
+    res.render('product-alert', {
+      // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+      style: 'product-alert',
+      info: 'Пользователь удален',
+    })
+  } else {
+    // ↙️ cюди вводимо назву файлу з сontainer
+    res.render('product-alert', {
+      // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+      style: 'product-alert',
+      info: 'Произошла ошибка',
+    })
+  }
 })
 
 // ================================================================

@@ -3,6 +3,7 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
  }}
 {{#with data}}
+  <h1 class='edit-title'>Редактирование товара</h1>
   <div class='form'>
     <h1 class='form__title'>Информация про товар</h1>
     <form method='POST' action='/product-edit'>
@@ -10,20 +11,26 @@
         <div class='form__one'>
           <div class='form__field'>
             <label for='text' class='form__label'>Название товара:</label>
-            <input type='text' name='name' class='form__input' />
+            <input type='text' name='name' class='form__input' value='{{name}}' />
           </div>
           <div class='form__field'>
             <label for='number' class='form__label'>Цена:</label>
-            <input type='number' name='price' class='form__input' />
+            <input type='number' name='price' class='form__input' value='{{price}}' />
           </div>
           <div class='form__field'>
             <label for='id' class='form__label'>ID:</label>
-            <input type='id' name='id' class='form__input' />
+            <input type='id' name='id' class='form__input' value='{{id}}' />
           </div>
         </div>
         <div class='form__field'>
           <label for='text' class='form__label'>Короткое описание товара:</label>
-          <textarea type='text' name='description' class='form__input' rows='4'></textarea>
+          <textarea
+            type='text'
+            name='description'
+            class='form__input'
+            rows='4'
+            autofocus
+          >{{description}}</textarea>
           <span class='form__span'>Отображается в карточке товара</span>
         </div>
         <div class='form__action'>

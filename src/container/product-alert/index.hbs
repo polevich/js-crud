@@ -2,18 +2,17 @@
 Це код container файлу для index сторінки, 
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
  }}
-
-<div class='page'>
-  <div class='page__info'>
-    <h1>{{info}}</h1>
-    <p>{{info2}}</p>
+<section>
+  <h1 class='title'>Статус действия</h1>
+  <div class='page'>
+    <div class='page__info'>
+      <p>{{info}}</p>
+    </div>
+    <div class='page__back'>
+      <a href='/product-list' class='page__button'>Вернуться назад</a>
+    </div>
   </div>
-  <div class='page__back'>
-    <a href='/product-list' class='page__button'>Вернуться назад</a>
-  </div>
-
-</div>
-
+</section>
 {{! 
     Цей код містить лише те, що буде виводитись в <body>
     Адже наш layout/default.hbs має вже структуру HTML
