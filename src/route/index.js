@@ -1,6 +1,5 @@
 // Підключаємо технологію express для back-end сервера
 const express = require('express')
-const { info } = require('sass')
 // Cтворюємо роутер - місце, куди ми підключаємо ендпоїнти
 const router = express.Router()
 
@@ -76,19 +75,18 @@ class Purchase {
   static #BONUS_FACTOR = 0.1
   static #count = 0
   static #list = []
-
   static #bonusAccount = new Map()
 
   static getBonusBalance = (email) => {
     return Purchase.#bonusAccount.get(email) || 0
   }
 
-  static clacBonusAmount = (value) => {
+  static calcBonusAmount = (value) => {
     return value * Purchase.#BONUS_FACTOR
   }
 
   static updateBonusBalance = (email, price, bonusUse = 0) => {
-    const amount = this.clacBonusAmount(price)
+    const amount = this.calcBonusAmount(price)
     const currentBalance = Purchase.getBonusBalance(email)
     const updatedBalance = currentBalance + amount - bonusUse
     Purchase.#bonusAccount.set(email, updatedBalance)
@@ -245,7 +243,7 @@ router.post('/purchase-create', function (req, res) {
 
   const productPrice = product.price * amount
   const totalPrice = productPrice + Purchase.DELIVERY_PRICE
-  const bonus = Purchase.clacBonusAmount(totalPrice)
+  const bonus = Purchase.calcBonusAmount(totalPrice)
 
   // ↙️ cюди вводимо назву файлу з сontainer
   res.render('purchase-create', {
@@ -308,7 +306,7 @@ router.post('/purchase-submit', function (req, res) {
     })
   }
 
-  if (!product.amount < amount) {
+  if (product.amount < amount) {
     return res.render('alert', {
       style: 'alert',
 
@@ -381,6 +379,7 @@ router.post('/purchase-submit', function (req, res) {
       productPrice,
       deliveryPrice,
       amount,
+      bonus,
       firstname,
       lastname,
       email,
@@ -403,6 +402,7 @@ router.post('/purchase-submit', function (req, res) {
   })
 })
 
+// ================================================================
 // ================================================================
 
 // Підключаємо роутер до бек-енду
