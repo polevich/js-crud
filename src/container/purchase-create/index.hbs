@@ -1,0 +1,38 @@
+<main class="main">
+	{{#with data}}
+		<form method="POST" action="/purchase-submit?id={{id}}" class="form-card">
+			{{>heading title="Ваш заказ"}}
+
+			<ul class="cart">
+				{{#each cart}}
+					<li class="cart__item">
+						<span>{{text}}</span>
+						<span>{{price}} грн</span>
+					</li>
+				{{/each}}
+			</ul>
+
+			{{>divider}}
+			{{>heading title="Оформление заказа"}}
+			{{>field label="Имя" name="firstname"}}
+			{{>field label="Фамилия" name="lastname"}}
+			{{>field label="Телефон" name="phone"}}
+			{{>field label="Почта" name="email"}}
+			{{>field label="Комментарий" name="comment"}}
+			{{>field label="Списать бонусы" name="bonus"}}
+			{{>field label="Промо-код" name="promocode"}}
+			{{>divider}}
+
+			{{>field type=number value="totalPrice" name="totalPrice" disabled=true}}
+			{{>field value=productPrice name="productPrice" disabled=true}}
+			{{>field value=deliveryPrice name="deliveryPrice" disabled=true}}
+			{{>field value=amount name="amount" disabled=true}}
+
+			<strong class="form-card__total">
+				Всего: {{totalPrice}} грн ({{bonus}} грн бонусов)
+			</strong>
+
+			{{>button text="Оформить заказ"}}
+		</form>
+	{{/with}}
+</main>

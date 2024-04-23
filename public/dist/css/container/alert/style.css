@@ -1,0 +1,37 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+.card__header {
+  flex-grow: 1;
+}
+.card__title {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0;
+}
+.card__subtitle {
+  font-size: 20px;
+  margin-top: 8px;
+  color: #666666;
+}
+.card__button {
+  background-color: blue;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.card__button:hover {
+  background-color: darkblue;
+}
+
+/*# sourceMappingURL=style.css.map */
