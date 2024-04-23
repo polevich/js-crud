@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"version":3,"sourceRoot":"","sources":["../../../../../src/component/button/style.scss"],"names":[],"mappings":"AAEA;EAEE;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE","file":"style.css"}
+=======
+{"version":3,"sourceRoot":"","sources":["../../../../../src/component/button/style.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE","file":"style.css"}
+>>>>>>> 7d3ea65a8b4ac2b14e18dc7848c7e76312b970c9
