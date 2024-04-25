@@ -61,7 +61,7 @@ class User {
 
 // ================================================================
 
-class Product {
+class Product1 {
   static #list = []
 
   constructor(name, price, description) {
@@ -198,7 +198,7 @@ router.post('/user-update', function (req, res) {
 // ↙️ тут вводимо шлях (PATH) до сторінки
 router.get('/product-create', function (req, res) {
   // res.render генерує нам HTML сторінку
-  const list = Product.getList()
+  const list = Product1.getList()
   // ↙️ cюди вводимо назву файлу з сontainer
   res.render('product-create', {
     // вказуємо назву папки контейнера, в якій знаходяться наші стилі
@@ -211,10 +211,10 @@ router.get('/product-create', function (req, res) {
 
 router.post('/product-create', function (req, res) {
   const { name, price, description } = req.body
-  const product = new Product(name, price, description)
+  const product = new Product1(name, price, description)
 
   Product.add(product)
-  console.log(Product.getList())
+  console.log(Product1.getList())
 
   res.render('product-alert', {
     style: 'product-alert',
@@ -225,7 +225,7 @@ router.post('/product-create', function (req, res) {
 // ================================================================
 
 router.get('/product-list', function (req, res) {
-  const list = Product.getList()
+  const list = Product1.getList()
   console.log(list)
 
   res.render('product-list', {
@@ -245,7 +245,7 @@ router.get('/product-list', function (req, res) {
 router.get('/product-edit', function (req, res) {
   // res.render генерує нам HTML сторінку
   const { id } = req.query
-  const product = Product.getById(Number(id))
+  const product = Product1.getById(Number(id))
   // console.log(product)
   if (product) {
     // ↙️ cюди вводимо назву файлу з сontainer
@@ -273,7 +273,7 @@ router.get('/product-edit', function (req, res) {
 router.post('/product-edit', function (req, res) {
   // res.render генерує нам HTML сторінку
   const { id, name, price, description } = req.body
-  const product = Product.updateById(Number(id), {
+  const product = Product1.updateById(Number(id), {
     name,
     price,
     description,
@@ -303,7 +303,7 @@ router.post('/product-edit', function (req, res) {
 router.get('/product-delete', function (req, res) {
   const { id } = req.query
 
-  const product = Product.deleteById(Number(id))
+  const product = Product1.deleteById(Number(id))
 
   if (product) {
     // ↙️ cюди вводимо назву файлу з сontainer
