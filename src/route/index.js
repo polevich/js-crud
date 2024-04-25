@@ -152,7 +152,6 @@ class Product {
   static getRandomList = (id) => {
     const filteredList = this.#list.filter((product) => product.id !== id)
     const shuffledList = filteredList.sort(() => Math.random() - 0.5)
-
     return shuffledList.slice(0, 3)
   }
 }
@@ -234,7 +233,12 @@ class Purchase {
   }
 
   static getList = () => {
-    return Purchase.#list.reverse()
+    return Purchase.#list.reverse().map((purchase) => ({
+      id: purchase.id,
+      product: purchase.product.title,
+      totalPrice: purchase.totalPrice,
+      bonus: Purchase.calcBonusAmount(purchase.totalPrice),
+    }))
   }
 
   static getById = (id) => {
@@ -377,7 +381,7 @@ router.post('/product-create', function (req, res) {
   const { name, price, description } = req.body
   const product = new Product1(name, price, description)
 
-  Product.add(product)
+  Product1.add(product)
   console.log(Product1.getList())
 
   res.render('product-alert', {
@@ -725,6 +729,19 @@ router.post('/purchase-submit', function (req, res) {
 })
 
 // ================================================================
+
+router.get('/purchase-list', function (req, res) {
+  const list = Purchase.getList()
+  res.render('purchase-list', {
+    style: 'purchase-list',
+    data: {
+      purchases: {
+        list,
+      },
+    },
+  })
+})
+
 // ================================================================
 
 // Підключаємо роутер до бек-енду
