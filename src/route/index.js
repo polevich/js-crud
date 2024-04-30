@@ -246,7 +246,7 @@ class Purchase {
   }
 
   static updateById = (id, data) => {
-    const purchase = Purchase.getByIdn(id)
+    const purchase = Purchase.getById(id)
     if (purchase) {
       if (data.firstname) purchase.firstname = data.firstname
       if (data.lastname) purchase.lastname = data.lastname
@@ -738,6 +738,43 @@ router.get('/purchase-list', function (req, res) {
       purchases: {
         list,
       },
+    },
+  })
+})
+
+// ================================================================
+
+router.get('/purchase-info', function (req, res) {
+  const id = Number(req.query.id)
+  const purchase = Purchase.getById(id)
+
+  if (!purchase) {
+    return res.render('alert', {
+      style: 'alert',
+      data: {
+        message: 'Ошибка',
+        info: 'Покупка не найдена',
+        link: '/purchase-list',
+      },
+    })
+  }
+
+  const bonus = Purchase.calcBonusAmount(purchase.totalPrice)
+
+  res.render('purchase-info', {
+    style: 'purchase-info',
+    data: {
+      id: purchase.id,
+      firstname: purchase.firstname,
+      lastname: purchase.lastname,
+      phone: purchase.phone,
+      email: purchase.email,
+      delivery: purchase.delivery,
+      product: purchase.product.title,
+      productPrice: purchase.productPrice,
+      deliveryPrice: purchase.deliveryPrice,
+      totalPrice: purchase.totalPrice,
+      bonus: bonus,
     },
   })
 })

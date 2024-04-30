@@ -2,6 +2,8 @@
 	{{> heading title="Товары" info="Компьютеры и ноутбуки / Компьютеры, неттопы, моноблоки"}}
 
 	<div class="product-list">
-		{{> purchase-product data=this}}
+		{{#each data.list}}
+			{{>purchase-product data=this}}
+		{{/each}}
 	</div>
 </main>

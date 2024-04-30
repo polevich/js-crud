@@ -4,18 +4,13 @@
 @use '../../component/purchase-product/style.scss' as purchaseProduct;
 @use '../../component/field/style.scss' as field;
 @use '../../component/divider/style.scss' as divider;
+@use '../../component/button/style.scss' as button;
 
 .main {
   display: flex;
   flex-direction: column;
   gap: s.space(10);
   padding: s.space(10);
-}
-
-.product-info__divider {
-  width: 100%;
-  height: 1px;
-  background: s.color(border);
 }
 
 .product-info {

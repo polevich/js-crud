@@ -2,10 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 20px;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
   background-color: #fff;
+  width: 600px;
 }
 .card__header {
   flex-grow: 1;

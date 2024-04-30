@@ -1,16 +1,17 @@
 <main class="main">
 	{{> heading title="Мои заказы"}}
 
-	{{#with data.purchases}}
-		{{#each list}}
-			<div class="purchase-list">
-				<div>ID: {{id}}</div>
-				<div>Товары: {{product}}</div>
-				<div>Сумма заказа: {{totalPrice}}</div>
-				<div>Насчитанные бонусы: {{bonus}}</div>
-			</div>
-		{{/each}}
-	{{/with}}
+	<section class="purchase-list">
+		{{#with data.purchases}}
+			{{#each list}}
+				{{>purchase-item}}
+				{{> divider}}
+			{{/each}}
+		{{/with}}
+	</section>
 
+	<div>
+		<a href="/purchase-index">На главную</a>
+	</div>
 
 </main>

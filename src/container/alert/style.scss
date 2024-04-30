@@ -4,10 +4,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: s.space(5);
   padding: s.space(5);
   border-radius: s.space(2);
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
   background-color: #fff;
+  width: 600px;
 
   &__header {
     flex-grow: 1;

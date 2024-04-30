@@ -16,7 +16,7 @@
 
 .product-card {
   border-radius: 1px;
-  border: 1px solid;
+  border: 1px solid #ddd;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -73,14 +73,38 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding: 40px;
+  margin: 40px;
+  width: 1000px;
+  box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
 }
 
-.purchase-list {
+.purchase-href {
+  text-decoration: none;
+  border-bottom: 1px solid #ced4da;
+}
+
+.purchase-item {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-direction: row;
   gap: 20px;
+}
+.purchase-item__block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  color: #808080;
+  font-size: 16px;
+}
+
+.text {
+  color: black;
+  font-size: 16px;
 }
 
 /*# sourceMappingURL=style.css.map */
