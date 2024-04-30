@@ -1,0 +1,23 @@
+<main class="main">
+
+  {{> heading title="Изменение данных"}}
+
+  {{#with data}}
+    <div class='form'>
+      <form method='POST' action='/purchase-edit?id={{id}}'>
+        <div class='form__content'>
+          <div class='purchase-info__block'>
+            <span class='title'>ID:</span>
+            <span class='text'>{{id}}</span>
+            {{> field label="Имя" name="firstname" value='{{firstname}}'}}
+            {{> field label="Фамилия" name="lastname" value='{{lastname}}'}}
+            {{> field label="Почта" name="email" value='{{email}}'}}
+            {{> field label="Телефон" name="phone" value='{{phone}}'}}
+          </div>
+          {{> button text="Сохранить изменения"}}
+        </div>
+      </form>
+    </div>
+  {{/with}}
+
+</main>

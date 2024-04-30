@@ -781,5 +781,65 @@ router.get('/purchase-info', function (req, res) {
 
 // ================================================================
 
+router.get('/purchase-edit', function (req, res) {
+  // res.render генерує нам HTML сторінку
+  const { id } = req.query
+  const purchase = Purchase.getById(Number(id))
+  // console.log(product)
+  if (purchase) {
+    // ↙️ cюди вводимо назву файлу з сontainer
+    return res.render('purchase-edit', {
+      // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+      style: 'purchase-edit',
+      data: {
+        id: purchase.id,
+        firstname: purchase.firstname,
+        lastname: purchase.lastname,
+        email: purchase.email,
+        phone: purchase.phone,
+      },
+    })
+  } else {
+    return res.render('alert', {
+      // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+      style: 'alert',
+      info: 'Заказа с таким ID не найдено',
+    })
+  }
+})
+
+// ================================================================
+
+router.post('/purchase-edit', function (req, res) {
+  // res.render генерує нам HTML сторінку
+  const { id, firstname, lastname, email, phone } = req.body
+  const purchase = Purchase.updateById(Number(id), {
+    firstname,
+    lastname,
+    email,
+    phone,
+  })
+  console.log(id)
+  console.log(purchase)
+  if (purchase) {
+    // ↙️ cюди вводимо назву файлу з сontainer
+    res.render('alert', {
+      // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+      style: 'alert',
+      info: 'Информация про покупку обновлена',
+    })
+  } else {
+    // ↙️ cюди вводимо назву файлу з сontainer
+    res.render('alert', {
+      // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+      style: 'alert',
+      info: 'Произошла ошибка',
+    })
+  }
+  // ↑↑ сюди вводимо JSON дані
+})
+
+// ================================================================
+
 // Підключаємо роутер до бек-енду
 module.exports = router

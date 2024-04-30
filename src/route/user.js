@@ -92,15 +92,12 @@ class Product1 {
       if (name) {
         product.name = name
       }
-
       if (price) {
         product.price = price
       }
-
       if (description) {
         product.description = description
       }
-
       return true
     } else {
       return false
