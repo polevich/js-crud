@@ -1,3 +1,93 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
+.heading__title {
+  font-size: 24px;
+  color: #000;
+}
+
+.heading__info {
+  font-size: 16px;
+  color: #000;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.field__label {
+  font-size: 16px;
+  color: #343a40;
+}
+
+.field__input {
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.field--disabled {
+  position: absolute;
+  display: none;
+}
+
+.button {
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.button:hover {
+  opacity: 0.7;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: 40px;
+}
+
+.form {
+  max-width: 100%;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+  box-shadow: 0px 2px 17px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+.form__id {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form__order {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.title {
+  font-size: 16px;
+  color: #343a40;
+}
+
+.text {
+  font-size: 16px;
+  color: black;
+}
 
 /*# sourceMappingURL=style.css.map */

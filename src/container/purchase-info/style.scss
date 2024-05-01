@@ -1,7 +1,6 @@
 @use '../../lib/service.scss' as s;
 
 @use '../../component/heading/style.scss' as heading;
-@use '../../component/purchase-product/style.scss' as purchaseProduct;
 @use '../../component/field/style.scss' as field;
 @use '../../component/divider/style.scss' as divider;
 @use '../../component/button/style.scss' as button;
@@ -9,7 +8,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  gap: s.space(10);
+  gap: s.space(5);
   margin: s.space(10);
   width: 1000px;
   box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.1);
@@ -17,20 +16,43 @@
   padding: s.space(5);
 }
 
-.purchase-info {
+.page {
   display: flex;
   flex-direction: column;
+  gap: s.space(5);
 
   &__block {
     display: flex;
     flex-direction: column;
-    gap: s.space(5);
-    border-bottom: 1px solid #ddd;
   }
 
-  &__item {
+  &__block--big {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: s.space(5);
+  }
+
+  &__block--small {
+    display: flex;
+    flex-direction: column;
+    gap: s.space(5);
+  }
+
+  &__list {
     display: flex;
     flex-direction: column;
     gap: s.space(2);
   }
+}
+
+.title {
+  font-size: 16px;
+  color: #343a40;
+}
+
+.text {
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
 }

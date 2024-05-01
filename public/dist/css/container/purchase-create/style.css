@@ -28,7 +28,8 @@
 }
 
 .field__label {
-  font-size: 14px;
+  font-size: 16px;
+  color: #343a40;
 }
 
 .field__input {
@@ -60,16 +61,18 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding: 40px;
+  margin: 40px;
 }
 
-.form-card {
-  width: 100%;
+.form {
+  max-width: 100%;
+  width: 1000px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10 px;
+  padding: 40px;
+  box-shadow: 0px 2px 17px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
 }
 
 .cart {
@@ -80,6 +83,13 @@
 .cart__item {
   display: flex;
   justify-content: space-between;
+}
+
+.order-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */

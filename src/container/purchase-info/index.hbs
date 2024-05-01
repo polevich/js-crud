@@ -2,59 +2,64 @@
   {{> heading title="Информация про заказ"}}
 	{{#with data}}
 		 
-			<div class='purchase-info'>
-				<div class='purchase-info__block'>
+			<div class='page'>
+				<div class='page__list'>
 					<span class='title'>ID:</span>
 					<span class='text'>{{id}}</span>
 				</div>
-				<div class='purchase-info__block'>
-					<div class="purchase-info__item">
+				{{> divider}}
+				<div class='page__block page__block--big'>
+					<div class="page__list">
 						<span class='title'>Имя:</span>
 						<span class='text'>{{firstname}}</span>
 					</div>
-					<div class="purchase-info__item">
+					<div class="page__list">
 						<span class='title'>Фамилия:</span>
 						<span class='text'>{{lastname}}</span>
 					</div>
-					<div class="purchase-info__item">
+					<div class="page__list">
 						<span class='title'>Телефон:</span>
 						<span class='text'>{{phone}}</span>
 					</div>
-					<div class="purchase-info__item">
+					<div class="page__list">
 						<span class='title'>Электронная почта:</span>
 						<span class='text'>{{email}}</span>
 					</div>
 				</div>
-				<div class='purchase-info__block'>
-					<div class="purchase-info__item">
+				{{> divider}}
+				<div class='page__block page__block--small'>
+					<div class="page__list">
 						<span class='title'>Название товара:</span>
 						<span class='text'>{{product}}</span>
 					</div>
-					<div class="purchase-info__item">
+					<div class="page__list">
 						<span class='title'>Комментарий:</span>
 						<span class='text'>{{comment}}</span>
 					</div>
 				</div>
-				<div class='purchase-info__block'>
-					<div class="purchase-info__item">
+				{{> divider}}
+				<div class='page__block page__block--big'>
+					<div class="page__list">
 						<span class='title'>Стоимость товаров:</span>
 						<span class='text'>{{productPrice}}</span>
 					</div>
-					<div class="purchase-info__item">
+					<div class="page__list">
 						<span class='title'>Стоимость доставки:</span>
 						<span class='text'>{{deliveryPrice}}</span>
 					</div>
-					<div class="purchase-info__item">
+					<div class="page__list">
 						<span class='title'>Сумма к оплате:</span>
 						<span class='text'>{{totalPrice}}</span>
 					</div>
-					<div class="purchase-info__item">
+					<div class="page__list">
 						<span class='title'>Насчитанные бонусы:</span>
 						<span class='text'>{{bonus}}</span>
 					</div>
 				</div>
+				{{> divider}}
 			</div>
-		
+			
+		<a href='/purchase-edit?id={{id}}'>{{> button text="Изменить данные"}}</a>
 	{{/with}}
-	{{>button text="Изменить данные"}}
+		
 </main>
