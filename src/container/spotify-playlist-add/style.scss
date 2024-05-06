@@ -1,0 +1,10 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../lib/spotify.scss' as spotify;
+
+.main__content {
+  background-color: #282828;
+  padding: 24px 32px;
+  border-radius: 8px;
+  height: fit-content;
+}
