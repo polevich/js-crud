@@ -319,13 +319,7 @@ router.post('/purchase-submit', function (req, res) {
   amount = Number(amount)
   bonus = Number(bonus)
 
-  if (
-    isNaN(totalPrice) ||
-    isNaN(productPrice) ||
-    isNaN(deliveryPrice) ||
-    isNaN(amount) ||
-    isNaN(bonus)
-  ) {
+  if (isNaN(totalPrice) || isNaN(productPrice) || isNaN(deliveryPrice) || isNaN(amount) || isNaN(bonus)) {
     return res.render('alert', {
       style: 'alert',
       data: {

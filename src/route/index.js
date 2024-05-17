@@ -4,6 +4,12 @@ const express = require('express')
 const router = express.Router()
 
 // ================================================================
+const user = require('./user')
+const purchase = require('./purchase')
+// ================================================================
+router.use('/', user)
+router.use('/', purchase)
+// ================================================================
 
 class Track {
   static #list = []
@@ -31,11 +37,7 @@ class Track {
 }
 
 Track.create('Инь Ян', 'MONATIK i ROXOLANA', 'https://picsum.photos/100/100')
-Track.create(
-  'Baila Conmigo (remix)',
-  'Selena Gomez i Rauw Alejandro',
-  'https://picsum.photos/100/100',
-)
+Track.create('Baila Conmigo (remix)', 'Selena Gomez i Rauw Alejandro', 'https://picsum.photos/100/100')
 Track.create('Shameless', 'Camila Cabello', 'https://picsum.photos/100/100')
 Track.create('DAKITI', 'BAD BUNNY i JHAY', 'https://picsum.photos/100/100')
 Track.create('11 PM', 'Maluma', 'https://picsum.photos/100/100')
@@ -82,6 +84,19 @@ class Playlist {
 Playlist.makeMix(Playlist.create('Test'))
 Playlist.makeMix(Playlist.create('Test2'))
 Playlist.makeMix(Playlist.create('Test3'))
+
+// ================================================================
+
+router.get('/', function (req, res) {
+  // res.render генерує нам HTML сторінку
+
+  // ↙️ cюди вводимо назву файлу з сontainer
+  res.render('index', {
+    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+    style: 'index',
+  })
+  // ↑↑ сюди вводимо JSON дані
+})
 
 // ================================================================
 
@@ -299,7 +314,7 @@ router.post('/spotify-playlist-add', function (req, res) {
 
 // ================================================================
 
-router.get('/', function (req, res) {
+router.get('/spotify', function (req, res) {
   const playlists = Playlist.getList()
 
   res.render('spotify-index', {
