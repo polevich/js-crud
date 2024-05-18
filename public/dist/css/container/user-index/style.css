@@ -1,8 +1,10 @@
 .form {
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  padding: 24px;
   gap: 32px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 .form__title {
   font-size: 20px;

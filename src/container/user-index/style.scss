@@ -3,8 +3,10 @@
 .form {
   display: flex;
   flex-direction: column;
-  padding: s.space(4);
+  padding: s.space(6);
   gap: s.space(8);
+	max-width: 600px;
+	margin: 0 auto;
 
   &__title {
     font-size: 20px;
